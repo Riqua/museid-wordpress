@@ -218,7 +218,7 @@ $postlink=get_permalink($postid);
 		if ($blocchi > 1){
 			$next = $blocco+1;
 			$prec = $blocco-1;
-			$stampa .= '<h1 id="bacidastefano-'.$next.'" class="navigation-europeana-title">';
+			$stampa .= '<h1 id="navigazione-'.$next.'" class="navigation-europeana-title">';
 			if($blocco > 1){
 				$stampa .= '<a class="navigation-europeana" onClick="caricaCulturaitalia(\''.$coll.'\', \''.$ricerca.'\', '.$prec.')"><<</a> ';
 			}
