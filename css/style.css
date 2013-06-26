@@ -1,3 +1,5 @@
+/*Europeana*/
+
 .europeana-link, .europeana-piu_info{
 background-image:url('img/europeana-logo.png');
 background-repeat:no-repeat;
@@ -13,8 +15,11 @@ a.europeana-piu_info {
 div.show-europeana{margin-top:22px;}
 div.europeana-button{visibility:hidden;margin: 4px 0;}
 li.europeana_object:hover div.europeana-button-hover{visibility:inherit !important;}
-li.europeana_object{background:#fff;list-style:none;box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);-moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);-webkit-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);padding:4px;margin:4px;border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;-webkit-border-radius:4px;width:200px;}
+li.europeana_object, a.navigation-europeana, a.apps-location{background:#fff;box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);-moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);-webkit-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);padding:4px;margin:4px;border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;-webkit-border-radius:4px}
+li.europeana_object{list-style:none;width:200px}
 a.likeeuropeana{cursor:pointer;float:right}
+a.apps-location,a.navigation-europeana{cursor:pointer;font-size:0.8rem;text-align:center;font-weight:bold}
+.scheda-culturaitalia img{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;}
 
 div.comment-content{display:inline-block;width: 74%;}
 div.comment-img-opera{float:right;margin-top: 15px;max-width:130px;}
@@ -25,39 +30,9 @@ ul#europeana-box{
 margin:0px 2px;
 position:relative;
 }
-h1.navigation-europeana-title{
-font: bold 11px Sans-Serif;
-text-align:center;
-}
+h1.navigation-europeana-title{text-align:center}
 .navigation-europeana{font-weight:normal}
 .navigation-europeana:hover{text-decoration:none}
-
-div.ricerca-in-europeana-box{
-background: #F4F4F4;
-    border-radius: 4px;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
--o-border-radius: 4px;
-    margin: 10px 16px 0px 22px;
-    padding: 6px 23px;
-    position: relative;}
-div.ricerca-in-europeana-box input{
-border: 1px solid #CCCCCC;
-    border-radius: 3px;
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
--o-border-radius: 3px;
-    box-shadow: 0 1px 0 #EEEEEE inset, 0 1px 0 #FFFFFF;
-  -moz-box-shadow: 0 1px 0 #EEEEEE inset, 0 1px 0 #FFFFFF;
-	-webkit-box-shadow: 0 1px 0 #EEEEEE inset, 0 1px 0 #FFFFFF;
-    padding: 4px;
-}
-div.ricerca-in-europeana-box input:focus{
-box-shadow:0 0 2px 0 #FFFFFF;
--moz-box-shadow:0 0 2px 0 #FFFFFF;
--webkit-box-shadow:0 0 2px 0 #FFFFFF;
-border:1px solid #afafaf;
-}
 #wrap-culturaitalia #caricamento{ background: url("../images/animation.gif") no-repeat scroll 50% 0 transparent;
     color: #AAAAAA;font-size: 1rem;
     padding: 60px 0 10px;
