@@ -47,20 +47,7 @@ function schedaculturaitalia_ajax() {
 	die();
 }
 add_action( 'wp_ajax_schedaculturaitalia', 'schedaculturaitalia_ajax' ); 
-add_action( 'wp_ajax_nopriv_schedaculturaitalia', 'schedaculturaitalia_ajax' ); 
-
-function piaceeuropeana_ajax() {
-	check_ajax_referer( "helloworld" );
-	$titolo = $_POST['titolo'];
-	$opera = $_POST['opera'];
-	$linkopera = $_POST['linkopera'];
-	$linkimg = $_POST['linkimg'];
-	$postlink = $_POST['luogoid'];
-	echo add_activity_europeana($titolo, $postlink, $opera, $linkopera, $linkimg);
-	die();
-}
-add_action( 'wp_ajax_piaceeuropeana', 'piaceeuropeana_ajax' ); 
-add_action( 'wp_ajax_nopriv_piaceeuropeana', 'piaceeuropeana_ajax' ); 
+add_action( 'wp_ajax_nopriv_schedaculturaitalia', 'schedaculturaitalia_ajax' );  
 
 function piaceculturaitalia_ajax() {
 	check_ajax_referer( "helloculturaitalia");
@@ -82,14 +69,14 @@ function collectCulturaitalia($atts) {
 		extract(shortcode_atts(array(
 		'link' => '#',
 		'tipo' => '',
+		'click' => 'no',
 		'esplora' => 'la sezione'
 	), $atts));
 	global $post;
-	wp_enqueue_script('thickbox');
-	wp_enqueue_style('thickbox');
-	//INSERIRE CONTROLLO SE ESISTE METABOX EUROPEANA, IN TAL CASO NON CARICARE WOOKMARK
+	if($atts[click]=='info'){wp_enqueue_script('thickbox');
+	wp_enqueue_style('thickbox');}
 	wp_enqueue_script('wookmark', plugins_url('js/jquery.wookmark.min.js',__FILE__), array('jquery'), '1.0');
-	wp_enqueue_script('zoomooz', plugins_url('js/jquery.zoomooz.min.js',__FILE__), array('jquery'));
+	if($atts[click]=='zoom'){wp_enqueue_script('zoomooz', plugins_url('js/jquery.zoomooz.min.js',__FILE__), array('jquery'));}
 	wp_register_style( 'wp-museid-style', plugins_url('css/style.css', __FILE__) );
     wp_enqueue_style( 'wp-museid-style' );
 	$stampa = '';
@@ -118,11 +105,12 @@ function collectCulturaitalia($atts) {
 						jQuery(".navigation-europeana").show();
 						jQuery("#europeana-box").fadeTo(0, 1);
 						jQuery("#helloculturaitalia").html(html); 
-						jQuery("#helloculturaitalia").show(mostraWookmark());
+						jQuery("#helloculturaitalia").show(mostraWookmark());';
+			if($atts[click]=='zoom'){$stampa .='
 						jQuery("#main").addClass("zoomViewport");
 						jQuery("#europeana-box").addClass("zoomContainer");
-						jQuery(".europeana_object").zoomTarget({targetsize:0.95, duration:600, nativeanimation:true, closeclick:true});
-						jQuery( \'.scheda-descrittiva\' ).click(function(){
+						jQuery(".europeana_object").zoomTarget({targetsize:0.95, duration:600, nativeanimation:true, closeclick:true});';}
+			if($atts[click]=='info'){$stampa .='	jQuery( \'.scheda-descrittiva\' ).click(function(){
 							var id = this.id;
 							jQuery.ajax({
 								type: "post",url: "'.get_bloginfo('url').'/wp-admin/admin-ajax.php",data: {
@@ -139,8 +127,8 @@ function collectCulturaitalia($atts) {
 									jQuery("#TB_ajaxContent").hide(0);
 								}
 							});
-					});
-					},
+					});';}
+			$stampa .='},
 					error: function() {}
 				}); //close jQuery.ajax(
 			}';
@@ -259,7 +247,7 @@ $postlink=get_permalink($postid);
 			$stampa .= '<a class="fav likeeuropeana" OnClick="likeCulturaitalia(\''.$item->nodeValue . '\',\''.htmlspecialchars($titolo, ENT_QUOTES, 'UTF-8').'\',\'http://www.culturaitalia.it/opencms/museid/viewItem.jsp?language=it&case=&id=' . $item->nodeValue .'\',\''.$immagine->nodeValue.'\');" title="Aggiungi ai preferiti"> </a>';
 		}
 		$stampa .= '</div>';
-		$stampa .='<a class="scheda-culturaitalia" id="'.$item->nodeValue . '" title="'.$titolo.'"><img src="'.$immagine->nodeValue . '" width="200px"/></a>';
+		$stampa .='<a class="scheda-culturaitalia scheda-descrittiva" id="'.$item->nodeValue . '" title="'.$titolo.'"><img src="'.$immagine->nodeValue . '" width="200px"/></a>';
 		$stampa .= '<h4 style="font-size:13px;">'.$titolo. '</h4> <a href="http://www.culturaitalia.it/opencms/museid/viewItem.jsp?language=it&case=&id=' . $item->nodeValue . '" target="_blank" class="europeana-link europeana-piu_info">(Fonte)</a>';
 		$stampa .='</li>';
 		}}
@@ -302,6 +290,7 @@ function schedaCulturaitalia($collezione) {
 	return $stampa;
 }
 
+//buddypress function
 function add_activity_culturaitalia($elementi, $titolo, $postlink, $opera, $linkopera, $immagine){
 global $bp, $current_user;
  if ( function_exists( 'bp_activity_add' ) ){
@@ -320,12 +309,5 @@ global $bp, $current_user;
  'type' => 'mipiace_opera',
  ) );
 }}}
-
-function bp_culturaitalia_init() {
-	if ( version_compare( BP_VERSION, '1.3', '>' ) ){
-		require( dirname( __FILE__ ) . '/riqua-cult-bp.php' );
-	}
-}
-add_action( 'bp_include', 'bp_culturaitalia_init' );
 
 ?>
