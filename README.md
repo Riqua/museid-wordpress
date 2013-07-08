@@ -55,8 +55,10 @@ Funzionalità per Buddypress
 Condividi sulle attività: se Buddypress è attivo, su ogni opera visualizzata comparirà un pulsante attraverso cui segnalare l'opera nello stream delle attività di Buddypress (bp-activity).
 
 Esempi:
-https://github.com/Riqua/museid-wordpress/blob/master/buddypress-screenshot.PNG
-http://cult.riqua.eu/tracce ad esempio con le attività di http://cult.riqua.eu/membri/stefanocolarelli1/activity/
+<ul><li>
+https://github.com/Riqua/museid-wordpress/blob/master/buddypress-screenshot.PNG</li>
+<li>http://cult.riqua.eu/tracce ad esempio con le attività di http://cult.riqua.eu/membri/stefanocolarelli1/activity/
+</li></ul>
 
 Siti web che utilizzano il plugin
 ================
