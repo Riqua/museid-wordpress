@@ -57,9 +57,10 @@ Condividi sulle attività: se Buddypress è attivo, su ogni opera visualizzata c
 Esempi:
 https://github.com/Riqua/museid-wordpress/blob/master/buddypress-screenshot.PNG
 http://cult.riqua.eu/tracce ad esempio con le attività di http://cult.riqua.eu/membri/stefanocolarelli1/activity/
-================
 
 Siti web che utilizzano il plugin
+================
+
 <ul>
 <li>http://cult.riqua.eu/</li>
 </ul>
