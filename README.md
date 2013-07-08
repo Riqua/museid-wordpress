@@ -49,18 +49,12 @@ Esempio su post: <a target="blank" href="http://wp-museid.riqua.eu/museo-di-san-
 Esempio su post: <a target="blank" href="http://cult.riqua.eu/reggia-di-caserta/">link</a> (cliccare sul tasto verde per visualizzare la collezione)</p>
 <br /><br />
 
-Funzionalità per Buddypress
-================
+<p>Infine, il plugin è dotato di funzionalità per <strong>Buddypress</strong>: se Buddypress è attivo, su ogni opera visualizzata comparirà un pulsante attraverso cui segnalare l'opera nello stream delle attività di Buddypress (bp-activity).</p>
+<p>Esempi:<br />
+https://github.com/Riqua/museid-wordpress/blob/master/buddypress-screenshot.PNG <br />
+http://cult.riqua.eu/tracce ad esempio con le attività di http://cult.riqua.eu/membri/stefanocolarelli1/activity <br />
 
-Condividi sulle attività: se Buddypress è attivo, su ogni opera visualizzata comparirà un pulsante attraverso cui segnalare l'opera nello stream delle attività di Buddypress (bp-activity).
-
-Esempi:
-<ul><li>
-https://github.com/Riqua/museid-wordpress/blob/master/buddypress-screenshot.PNG</li>
-<li>http://cult.riqua.eu/tracce ad esempio con le attività di http://cult.riqua.eu/membri/stefanocolarelli1/activity/
-</li></ul>
-
-Siti web che utilizzano il plugin
+Showcases
 ================
 
 <ul>
